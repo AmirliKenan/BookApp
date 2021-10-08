@@ -6,11 +6,13 @@ using BookApp.DataAccess.Repository.IRepository;
 using BookApp.Models;
 using BookApp.Utility;
 using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookApp.Areas.Admin.Controllers
 {
     [Area(areaName:"Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CoverTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

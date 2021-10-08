@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using BookApp.DataAccess.Repository.IRepository;
 using BookApp.Models;
 using BookApp.Models.ViewModels;
+using BookApp.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace BookApp.Areas.Admin.Controllers
 {
     [Area(areaName:"Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

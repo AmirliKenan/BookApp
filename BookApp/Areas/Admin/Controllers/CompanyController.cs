@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookApp.DataAccess.Repository.IRepository;
 using BookApp.Models;
+using BookApp.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookApp.Areas.Admin.Controllers
 {
     [Area(areaName:"Admin")]
+    [Authorize(Roles = SD.Role_Admin+","+SD.Role_Employee)]
     public class CompanyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
